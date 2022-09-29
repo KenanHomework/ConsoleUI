@@ -8,7 +8,7 @@ namespace ConsoleUI.ConsoleTable.Structural
 
         public string Name { get; set; }
 
-        public ConsoleColor DefColor { get; set; } = ConsoleColor.White;
+        public ConsoleColor Color { get; set; } = ConsoleColor.White;
 
         public int MaxLenght { get; set; } = 20;
 
@@ -16,30 +16,24 @@ namespace ConsoleUI.ConsoleTable.Structural
 
         public bool IsStatColumn { get; set; } = false;
 
-        public Column(string name,  int maxLenght, ConsoleColor defColor)
-        {
-            Name = name;
-            DefColor = defColor;
-            MaxLenght = maxLenght;
-            IsStatColumn = false;
-        }
-
         public Column(string name)
         {
             Name = name;
         }
 
-        public Column(string name, int maxLenght)
+        public Column(string name, int maxLenght,ConsoleColor color = ConsoleColor.White)
         {
             Name = name;
+            Color = color;
             MaxLenght = maxLenght;
             IsStatColumn = false;
         }
 
 
-        public Column(string name, int maxLenght, float averageValue)
+        public Column(string name, int maxLenght, float averageValue, ConsoleColor color = ConsoleColor.White)
         {
             Name = name;
+            Color= color;
             MaxLenght = maxLenght;
             AverageValue = averageValue;
             IsStatColumn = true;
@@ -47,7 +41,7 @@ namespace ConsoleUI.ConsoleTable.Structural
 
         public void Write()
         {
-            ConsoleWriteService.Write(Name, MaxLenght, DefColor);
+            ConsoleWriteService.Write(Name, MaxLenght, Color);
         }
     }
 }
