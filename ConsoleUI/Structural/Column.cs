@@ -21,7 +21,7 @@ namespace ConsoleUI.ConsoleTable.Structural
             Name = name;
         }
 
-        public Column(string name, int maxLenght,ConsoleColor color = ConsoleColor.White)
+        public Column(string name, int maxLenght, ConsoleColor color = ConsoleColor.White)
         {
             Name = name;
             Color = color;
@@ -33,15 +33,20 @@ namespace ConsoleUI.ConsoleTable.Structural
         public Column(string name, int maxLenght, float averageValue, ConsoleColor color = ConsoleColor.White)
         {
             Name = name;
-            Color= color;
+            Color = color;
             MaxLenght = maxLenght;
             AverageValue = averageValue;
             IsStatColumn = true;
         }
 
-        public void Write()
+        public void Write() 
+            => ConsoleWriteService.Write(Name, MaxLenght, Color);
+
+        public void WriteUnderline()
         {
-            ConsoleWriteService.Write(Name, MaxLenght, Color);
+            for (int i = 0; i < MaxLenght; i++)
+                Console.Write('-');
+            Console.Write(" | ");
         }
     }
 }

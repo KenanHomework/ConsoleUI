@@ -31,6 +31,8 @@ namespace ConsoleUI.ConsoleTable.Structural
         {
             Colums.ForEach(c => c.Write());
             Console.WriteLine();
+            Colums.ForEach(c => c.WriteUnderline());
+            Console.WriteLine();
             Rows.ForEach(r => r.Write());
         }
     }
